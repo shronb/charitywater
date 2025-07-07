@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Charity: Water in providing clean water to communities in need. Every $40 provides clean water for one person.">
     <title>Clean Water Initiative | Charity: Water</title>
     <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
     <style>
-        /* Global Styles */
+        /* ===== Global Styles ===== */
         * {
             margin: 0;
             padding: 0;
@@ -26,21 +27,30 @@
             padding: 0 20px;
         }
         
-        /* Black Navigation Bar */
+        /* ===== Navigation Bar ===== */
         .nav-bar {
             background-color: #000;
-            height: 70px;
+            height: 80px;
             display: flex;
             align-items: center;
             padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .logo {
-            height: 40px; /* Adjust based on your logo */
+            height: 40px;
             width: auto;
+            transition: transform 0.3s ease;
         }
         
-        /* Hero Section - Image on Right */
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        /* ===== Hero Section ===== */
         .hero-container {
             display: flex;
             min-height: 500px;
@@ -48,7 +58,7 @@
         
         .hero-content {
             flex: 1;
-            padding: 60px;
+            padding: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -59,6 +69,7 @@
             flex: 1;
             background: url('JS_20170301_8134_preview.jpg') no-repeat center center/cover;
             min-height: 500px;
+            transition: all 0.5s ease;
         }
         
         .hero-content h1 {
@@ -66,6 +77,7 @@
             margin-bottom: 20px;
             font-weight: 700;
             color: #003366;
+            line-height: 1.2;
         }
         
         .hero-content p {
@@ -76,7 +88,7 @@
             max-width: 600px;
         }
         
-        /* Main Content */
+        /* ===== Content Sections ===== */
         .main-content {
             padding: 60px 0;
             text-align: center;
@@ -90,6 +102,12 @@
             max-width: 800px;
             margin: 0 auto 40px;
             border-left: 5px solid #FFC907;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .problem-statement:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
         .problem-statement p {
@@ -109,7 +127,7 @@
             margin-bottom: 20px;
         }
         
-        /* CTA Section */
+        /* ===== CTA Section ===== */
         .cta-section {
             background-color: #003366;
             color: white;
@@ -146,11 +164,21 @@
         
         .btn:hover {
             background-color: #e6b506;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        /* Responsive Design */
+        /* ===== Responsive Design ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                padding: 60px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-container {
                 flex-direction: column;
@@ -159,10 +187,11 @@
             .hero-content {
                 padding: 40px 20px;
                 order: 2;
+                text-align: center;
             }
             
             .hero-image {
-                min-height: 300px;
+                min-height: 350px;
                 order: 1;
             }
             
@@ -172,27 +201,53 @@
             
             .hero-content p {
                 font-size: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .problem-statement {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-bar {
+                padding: 0 20px;
+                height: 70px;
+            }
+            
+            .logo {
+                height: 35px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Black Navigation Bar -->
-    <div class="nav-bar">
-        <img src="charitywater_logo_horizontal_WhiteText.png" alt="Organization Logo" class="logo">
-    </div>
+    <nav class="nav-bar" aria-label="Main navigation">
+        <img src="charitywater_logo_horizontal_WhiteText.png" alt="Charity: Water Logo" class="logo">
+    </nav>
     
     <!-- Hero Section -->
-    <div class="hero-container">
+    <section class="hero-container" aria-labelledby="main-heading">
         <div class="hero-content">
-            <h1>771 Million People Drink Dirty Water Today—You Can Change That!</h1>
+            <h1 id="main-heading">771 Million People Drink Dirty Water Today—You Can Change That!</h1>
             <p>Donate your weekly coffee money to fund cups of clean water for someone in another corner of the Earth. Join our effort to provide equal education opportunities and eliminate water transmitted diseases!</p>
         </div>
-        <div class="hero-image"></div>
-    </div>
+        <div class="hero-image" aria-hidden="true"></div>
+    </section>
     
-    <!-- Rest of your content -->
-    <section class="main-content">
+    <!-- Main Content -->
+    <main class="main-content">
         <div class="container">
             <div class="problem-statement">
                 <p>Every day, millions drink water that makes them sick. Women and girls walk hours to collect it. Children miss school to carry it. But you can change this for good.</p>
@@ -202,12 +257,13 @@
                 <p>Charity: Water uses 100% of your donation to fund clean water projects, bringing health, opportunity, and hope to communities in need. Every $40 provides clean water for one person. See the exact impact of your gift—and join a movement of activists fighting for a fairer world.</p>
             </div>
         </div>
-    </section>
+    </main>
     
-    <section class="cta-section">
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-heading">
         <div class="cta-content">
-            <h2>Start Changing Lives Today</h2>
-            <a href="#" class="btn">Donate Now</a>
+            <h2 id="cta-heading">Start Changing Lives Today</h2>
+            <a href="#" class="btn" aria-label="Donate to Charity Water">Donate Now</a>
         </div>
     </section>
 </body>
