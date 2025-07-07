@@ -15,7 +15,7 @@
         }
         
         body {
-            background-color: #FFF7E1; /* Beige background */
+            background-color: #FFF7E1;
             color: #333;
             line-height: 1.6;
         }
@@ -26,34 +26,54 @@
             padding: 0 20px;
         }
         
-        /* Header Section */
-        header {
-            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
-                        url('JS_20170301_8134_preview.jpg') no-repeat center center/cover;
-            height: 500px;
+        /* Black Navigation Bar */
+        .nav-bar {
+            background-color: #000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+        }
+        
+        .logo {
+            height: 40px; /* Adjust based on your logo */
+            width: auto;
+        }
+        
+        /* Hero Section - Image on Right */
+        .hero-container {
+            display: flex;
+            min-height: 500px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
+            background-color: #FFF7E1;
         }
         
-        header h1 {
+        .hero-image {
+            flex: 1;
+            background: url('JS_20170301_8134_preview.jpg') no-repeat center center/cover;
+            min-height: 500px;
+        }
+        
+        .hero-content h1 {
             font-size: 2.8rem;
             margin-bottom: 20px;
             font-weight: 700;
-            max-width: 800px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            color: #003366;
         }
         
-        header p {
+        .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            max-width: 700px;
             font-weight: 400;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            color: #003366;
+            max-width: 600px;
         }
         
         /* Main Content */
@@ -69,19 +89,19 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             margin: 0 auto 40px;
-            border-left: 5px solid #FFC907; /* Yellow accent */
+            border-left: 5px solid #FFC907;
         }
         
         .problem-statement p {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            color: #003366; /* Blue text */
+            color: #003366;
         }
         
         .impact-statement {
             max-width: 800px;
             margin: 0 auto 40px;
-            color: #003366; /* Blue text */
+            color: #003366;
         }
         
         .impact-statement p {
@@ -91,7 +111,7 @@
         
         /* CTA Section */
         .cta-section {
-            background-color: #003366; /* Blue background */
+            background-color: #003366;
             color: white;
             padding: 50px 20px;
             text-align: center;
@@ -110,8 +130,8 @@
         
         .btn {
             display: inline-block;
-            background-color: #FFC907; /* Yellow button */
-            color: #003366; /* Blue text */
+            background-color: #FFC907;
+            color: #003366;
             padding: 15px 30px;
             font-size: 1.1rem;
             font-weight: bold;
@@ -125,33 +145,53 @@
         }
         
         .btn:hover {
-            background-color: #e6b506; /* Slightly darker yellow */
+            background-color: #e6b506;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
+            .hero-container {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                padding: 40px 20px;
+                order: 2;
+            }
+            
+            .hero-image {
+                min-height: 300px;
+                order: 1;
+            }
+            
+            .hero-content h1 {
                 font-size: 2rem;
             }
             
-            header p {
+            .hero-content p {
                 font-size: 1rem;
-            }
-            
-            .problem-statement, .impact-statement {
-                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>771 Million People Drink Dirty Water Today—You Can Change That!</h1>
-        <p>Donate your weekly coffee money to fund cups of clean water for someone in another corner of the Earth. Join our effort to provide equal education opportunities and eliminate water transmitted diseases!</p>
-    </header>
+    <!-- Black Navigation Bar -->
+    <div class="nav-bar">
+        <img src="charitywater_logo_horizontal_WhiteText.png" alt="Organization Logo" class="logo">
+    </div>
     
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>771 Million People Drink Dirty Water Today—You Can Change That!</h1>
+            <p>Donate your weekly coffee money to fund cups of clean water for someone in another corner of the Earth. Join our effort to provide equal education opportunities and eliminate water transmitted diseases!</p>
+        </div>
+        <div class="hero-image"></div>
+    </div>
+    
+    <!-- Rest of your content -->
     <section class="main-content">
         <div class="container">
             <div class="problem-statement">
